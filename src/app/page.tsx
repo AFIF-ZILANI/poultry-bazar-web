@@ -29,7 +29,7 @@ export default function HomePage() {
             "@type": "Organization",
             name: "Poultry BAZAR",
             url: SITE_URL,
-            logo: `${SITE_URL}/brand/logo-mark.svg`,
+            logo: `${SITE_URL}/brand/mark-tile.svg`,
           },
           {
             "@context": "https://schema.org",

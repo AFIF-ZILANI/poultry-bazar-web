@@ -1,41 +1,54 @@
-/** Brand mark: a hen in profile on an indigo (neel) tile. The comb is the only vermilion (docs/design.md). */
-export function LogoMark({ className = "size-10", title }: { className?: string; title?: string }) {
+import { MARK_GEOMETRY as G, markColors, type MarkVariant } from "@/lib/brand";
+
+/**
+ * The price-tag hen (docs/design.md, Logo). Geometry lives in src/lib/brand.ts.
+ * `tile` for icons and small square spots, `bare` next to the wordmark on light backgrounds,
+ * `reverse` on indigo, `mono` for one-colour print.
+ */
+export function LogoMark({ variant = "tile", className = "size-10", title }: { variant?: MarkVariant; className?: string; title?: string }) {
+  const c = markColors(variant);
+  const hen = (
+    <g transform={G.rotate}>
+      {G.comb.map(([x, y, r]) => (
+        <circle key={x} cx={x} cy={y} r={r} fill={c.comb} />
+      ))}
+      <path d={G.tag} fill={c.body} />
+      {c.wattle && <path d={G.wattle} fill={c.comb} />}
+      <path d={G.beak} fill={c.beak} />
+      <circle cx={G.eye[0]} cy={G.eye[1]} r={G.eye[2]} fill={c.eye} />
+    </g>
+  );
   return (
-    <svg viewBox="0 0 64 64" className={className} role={title ? "img" : undefined} aria-hidden={title ? undefined : true}>
+    <svg
+      viewBox={variant === "tile" ? "0 0 64 64" : G.bareViewBox}
+      className={className}
+      role={title ? "img" : undefined}
+      aria-hidden={title ? undefined : true}
+    >
       {title ? <title>{title}</title> : null}
-      <rect width="64" height="64" rx="15" fill="#24337E" />
-      {/* comb sits behind the head */}
-      <circle cx="35.5" cy="17.5" r="3.6" fill="#D9461A" />
-      <circle cx="40.5" cy="15.2" r="3.9" fill="#D9461A" />
-      <circle cx="45.4" cy="17.6" r="3.4" fill="#D9461A" />
-      {/* tail */}
-      <path d="M14 41 L8.5 22.5 Q8.2 20.6 10 21.6 L26 31 Z" fill="#F5F4F0" />
-      {/* body */}
-      <ellipse cx="29" cy="40.5" rx="17.5" ry="13" fill="#F5F4F0" />
-      {/* neck + head */}
-      <path d="M33 34 Q35 25 40.5 21 L46 26 Q45 33 41 38 Z" fill="#F5F4F0" />
-      <circle cx="41" cy="26" r="8.6" fill="#F5F4F0" />
-      {/* beak and wattle */}
-      <path d="M48.8 23.6 L55.2 26.6 L48.8 29.6 Z" fill="#F2B807" />
-      <ellipse cx="47.3" cy="32.6" rx="2.1" ry="2.8" fill="#D9461A" />
-      {/* eye */}
-      <circle cx="43.4" cy="24.6" r="1.7" fill="#141C47" />
-      {/* wing */}
-      <path d="M19 39.5 Q27 47 37 40" fill="none" stroke="#C8CFEC" strokeWidth="2.6" strokeLinecap="round" />
+      {variant === "tile" ? (
+        <>
+          <rect width="64" height="64" rx="15" fill={c.bg!} />
+          <g transform={G.tileOffset}>{hen}</g>
+        </>
+      ) : (
+        hen
+      )}
     </svg>
   );
 }
 
+/** Lockup: mark + wordmark. "BAZAR" carries the weight; the Bangla name sits underneath. */
 export function Logo({ compact = false, inverted = false }: { compact?: boolean; inverted?: boolean }) {
   return (
-    <span className="flex items-center gap-2.5">
-      <LogoMark className="size-10 shrink-0" />
+    <span className="flex items-center gap-2">
+      <LogoMark variant={inverted ? "reverse" : "bare"} className="h-10 w-11 shrink-0" />
       <span className="flex flex-col leading-none">
-        <span className={`font-display text-[21px] tracking-tight ${inverted ? "text-white" : "text-brand-900"}`}>
+        <span className={`font-display text-[22px] tracking-[-0.01em] ${inverted ? "text-white" : "text-brand-900"}`}>
           <span className="font-medium">Poultry</span> <span className="font-extrabold">BAZAR</span>
         </span>
         {!compact && (
-          <span className={`mt-1 text-[12px] font-medium ${inverted ? "text-brand-200" : "text-muted"}`}>পোল্ট্রি বাজার · খামার থেকে সরাসরি</span>
+          <span className={`mt-1 text-[12.5px] font-medium ${inverted ? "text-brand-200" : "text-muted"}`}>পোল্ট্রি বাজার · খামার থেকে সরাসরি</span>
         )}
       </span>
     </span>

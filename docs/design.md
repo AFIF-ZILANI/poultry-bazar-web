@@ -12,13 +12,28 @@ photos, centred everything, identical rounded cards with drop shadows on every b
 
 ## Logo
 
-- **Mark**: a hen in profile built from three geometric pieces: a round body, a comb of three
-  rounded teeth, and a beak. It sits inside a rounded square of indigo (neel). The comb is the only
-  vermilion in the mark and the beak the only yolk, so it reads at 16px as "blue tile, red top".
-- **Wordmark**: "Poultry" in medium weight and "BAZAR" in bold caps, set in Anek Bangla, with the
-  Bangla "পোল্ট্রি বাজার" as a secondary line where space allows.
-- **Files**: `public/brand/logo-mark.svg`, `src/components/brand/Logo.tsx` (inline SVG, inherits colour).
-- **Don'ts**: don't stretch it, don't put the mark on orange, don't add a tagline inside the lockup.
+**Concept: the price-tag hen.** The mark is a price tag drawn as a hen. The tag's pointed end is the
+head, the string hole is the eye, a three-lobed vermilion comb sits on top and a yolk beak at the tip.
+One shape says both "poultry" and "market price", which is the whole product. It is tilted −18° so
+the hen leans forward, alert, towards the market.
+
+Why not the obvious hen or chicken-in-a-circle: every poultry feed bag, hatchery and farm app uses
+one, so it can't be owned and says nothing about a *bazar*.
+
+- **Variants** (`src/lib/brand.ts`, rendered by `<LogoMark variant>`):
+  - `tile`: on an indigo rounded square. App icon, favicon, social avatars, share images.
+  - `bare`: indigo mark next to the wordmark on light backgrounds (site header).
+  - `reverse`: light mark on indigo (footer, dark bands).
+  - `mono`: one colour for stamps, receipts and single-colour print.
+- **Wordmark**: "Poultry" medium + "BAZAR" extra-bold in Anek Bangla, with "পোল্ট্রি বাজার" underneath
+  where space allows.
+- **Minimum size**: 16px on screen (browser tab), 8mm in print. Clear space on all sides equal to the
+  comb's height.
+- **Don'ts**: don't stretch it, straighten it (the tilt is part of the mark), recolour it, or add
+  shadows or glows.
+- **Files**: geometry lives once in `src/lib/brand.ts`. `npm run brand` regenerates
+  `public/brand/mark-{tile,bare,reverse,mono}.svg` and `src/app/icon.svg`. The `/brand` page is the
+  visual guide for printers and the app team.
 
 ## Colour
 
