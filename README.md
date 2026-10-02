@@ -20,6 +20,18 @@ npm run lint
 Demo login: any valid Bangladeshi mobile number (Bangla or Latin digits) and any 8+ character
 password. Demo OTP for registration and password reset: `123456`.
 
+## Deploying (Vercel)
+
+No configuration is needed: the site URL comes from Vercel automatically, and preview deployments are
+`noindex`. Environment variables you may set:
+
+| Variable | When |
+|---|---|
+| `NEXT_PUBLIC_SITE_URL` | When serving from a custom domain, e.g. `https://poultrybazarbd.com` |
+| `SITE_INDEXABLE=false` | To keep the deployment out of search engines (recommended while it shows demo data) |
+
+Check SEO on any deployment with `npm run seo:audit -- https://poultry-bazar.vercel.app`.
+
 ## Docs
 
 | File | What it covers |
@@ -29,6 +41,7 @@ password. Demo OTP for registration and password reset: `123456`.
 | [`docs/design.md`](docs/design.md) | Logo, colour, type, layout, components, accessibility |
 | [`docs/rules.md`](docs/rules.md) | Engineering, content and security rules for this codebase |
 | [`docs/seo.md`](docs/seo.md) | URL rules, metadata, structured data, sitemap, target queries |
+| [`docs/seo-report-2026-10.md`](docs/seo-report-2026-10.md) | SEO audit of the Vercel deployment: findings, fixes, before/after scores |
 
 ## Where things live
 

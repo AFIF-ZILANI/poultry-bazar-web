@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import { getDistrict, getDistricts, getDivision, searchAds } from "@/lib/api";
 import { bn } from "@/lib/format";
@@ -16,11 +17,12 @@ export async function generateMetadata(props: PageProps<"/district/[slug]">): Pr
   const d = getDistrict(slug);
   if (!d) return {};
   const total = searchAds({ district: d.slug }).total;
-  return {
-    title: `${d.name} জেলায় মুরগী বিক্রি: ব্রয়লার, সোনালী, হাঁস`,
-    description: `${d.name} জেলার ${d.upazilas.join(", ")} থেকে ${bn(total)}টি চালু বিজ্ঞাপন। খামার থেকে সরাসরি মুরগী কিনুন, দর ও ওজন দেখে।`,
-    alternates: { canonical: `/district/${d.slug}` },
-  };
+  return pageMeta({
+    title: `${d.name} জেলায় মুরগী বিক্রি ও দাম`,
+    description: `${d.name} জেলার ${d.upazilas.join(", ")} থেকে ${bn(total)}টি চালু বিজ্ঞাপন: ব্রয়লার, সোনালী, দেশি মুরগী ও হাঁস। দর, ওজন ও বয়স দেখে খামার থেকে সরাসরি কিনুন।`,
+    path: `/district/${d.slug}`,
+    noindex: total === 0,
+  });
 }
 
 export default async function DistrictPage(props: PageProps<"/district/[slug]">) {

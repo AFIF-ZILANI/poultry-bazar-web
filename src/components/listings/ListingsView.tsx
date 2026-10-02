@@ -60,6 +60,7 @@ export function ListingsView({ f, heading, intro }: { f: AdFilters; heading: str
         </aside>
 
         <section aria-labelledby="results-title">
+          <h2 className="sr-only">বিজ্ঞাপনের তালিকা</h2>
           <div className="flex flex-wrap items-center gap-2">
             <FilterSheetButton active={active.length}>
               <FilterForm f={f} idPrefix="sheet" />

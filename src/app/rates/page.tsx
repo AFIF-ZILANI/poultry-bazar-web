@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
 import { ArrowDownRight, ArrowUpRight, Minus } from "lucide-react";
 import { getCategory, getDivisions, getRates } from "@/lib/api";
@@ -10,11 +11,11 @@ import { JsonLd } from "@/components/JsonLd";
 
 const today = dateBn(MOCK_NOW.toISOString());
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: `আজকের মুরগীর দাম (${today}): ব্রয়লার, সোনালী, লেয়ার`,
   description: `আজ ${today} খামার পর্যায়ে ব্রয়লার, সোনালী, লেয়ার, দেশি মুরগী ও হাঁসের কেজিপ্রতি দর। বিভাগভিত্তিক দাম ও ১৪ দিনের ওঠানামা।`,
-  alternates: { canonical: "/rates" },
-};
+  path: "/rates",
+});
 
 function Change({ diff }: { diff: number }) {
   const Icon = diff > 0 ? ArrowUpRight : diff < 0 ? ArrowDownRight : Minus;

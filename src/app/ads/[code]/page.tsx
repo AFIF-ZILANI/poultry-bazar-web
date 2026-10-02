@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CalendarDays, ChevronRight, Info, MapPin, ShieldAlert, TriangleAlert } from "lucide-react";
@@ -28,12 +29,14 @@ export async function generateMetadata(props: PageProps<"/ads/[code]">): Promise
   if (!ad) return { title: "বিজ্ঞাপন পাওয়া যায়নি" };
   const d = getDistrict(ad.district)!;
   const price = ad.pricePerKg ? `দর ${perKg(ad.pricePerKg)}` : "দরদাম সাপেক্ষে";
-  return {
+  return pageMeta({
     title: titleFor(code),
     description: `${titleFor(code)}। বয়স ${age(ad.ageDays)}, মোট প্রায় ${bn(totalKg(ad.birdCount, ad.avgWeightG))} কেজি, ${price}। ${ad.upazila}, ${d.name}। বিজ্ঞাপন ${ad.code}।`,
-    alternates: { canonical: `/ads/${ad.code}` },
-    openGraph: { type: "website", url: `/ads/${ad.code}` },
-  };
+    path: `/ads/${ad.code}`,
+    image: { url: `/ads/${ad.code}/opengraph-image`, alt: titleFor(code) },
+    // Expired listings stay reachable for people with the link but leave the index.
+    noindex: ad.status === "EXPIRED",
+  });
 }
 
 export default async function AdPage(props: PageProps<"/ads/[code]">) {
@@ -65,23 +68,38 @@ export default async function AdPage(props: PageProps<"/ads/[code]">) {
     <div className="mx-auto max-w-[1200px] px-4 pb-16 pt-4 md:px-6 md:pt-6">
       <JsonLd
         data={[
-          {
-            "@context": "https://schema.org",
-            "@type": "Product",
-            name: titleFor(ad.code),
-            sku: ad.code,
-            category: cat.nameEn,
-            image: `${SITE_URL}/ads/${ad.code}/opengraph-image`,
-            description: ad.note || `${cat.nameEn} chickens, ${ad.birdCount} birds, avg ${ad.avgWeightG} g, ${ad.ageDays} days, ${dist.nameEn}.`,
-            offers: {
-              "@type": "Offer",
-              priceCurrency: "BDT",
-              ...(ad.pricePerKg ? { price: ad.pricePerKg, unitText: "KGM" } : {}),
-              availability: sold ? "https://schema.org/SoldOut" : expired ? "https://schema.org/Discontinued" : "https://schema.org/InStock",
-              areaServed: dist.nameEn,
-              seller: { "@type": "Person", name: seller.name },
-            },
-          },
+          // Google requires a price on Product offers; negotiable and expired listings get breadcrumbs only.
+          ...(ad.pricePerKg && !expired
+            ? [
+                {
+                  "@context": "https://schema.org",
+                  "@type": "Product",
+                  name: titleFor(ad.code),
+                  sku: ad.code,
+                  category: cat.nameEn,
+                  image: `${SITE_URL}/ads/${ad.code}/opengraph-image`,
+                  description:
+                    ad.note || `${cat.nameEn} chickens, ${ad.birdCount} birds, avg ${ad.avgWeightG} g, ${ad.ageDays} days, ${dist.nameEn}.`,
+                  offers: {
+                    "@type": "Offer",
+                    url: `${SITE_URL}/ads/${ad.code}`,
+                    price: ad.pricePerKg,
+                    priceCurrency: "BDT",
+                    priceSpecification: {
+                      "@type": "UnitPriceSpecification",
+                      price: ad.pricePerKg,
+                      priceCurrency: "BDT",
+                      unitCode: "KGM",
+                      referenceQuantity: { "@type": "QuantitativeValue", value: 1, unitCode: "KGM" },
+                    },
+                    availability: sold ? "https://schema.org/SoldOut" : "https://schema.org/InStock",
+                    itemCondition: "https://schema.org/NewCondition",
+                    areaServed: { "@type": "AdministrativeArea", name: `${dist.nameEn}, Bangladesh` },
+                    seller: { "@type": "Person", name: seller.name },
+                  },
+                },
+              ]
+            : []),
           {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
@@ -156,7 +174,7 @@ export default async function AdPage(props: PageProps<"/ads/[code]">) {
                 ) : null}
                 <p className="mt-2 border-t border-line pt-2 text-[14px] text-muted">
                   আজকের গড় দর ({ref.scope}): <span className="num font-semibold text-ink">{perKg(ref.price)}</span>{" "}
-                  <Link href="/rates" className="text-brand-700 underline-offset-2 hover:underline">দর দেখুন</Link>
+                  <Link href="/rates" className="text-brand-700 underline underline-offset-2">দর দেখুন</Link>
                 </p>
               </div>
 

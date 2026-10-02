@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { Ban, Eye, Scale, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 import { ProsePage } from "@/components/Prose";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "নিরাপদে মুরগী কেনাবেচা: প্রতারণা থেকে বাঁচার উপায়",
   description: "অনলাইনে মুরগী কেনাবেচায় প্রতারণা এড়াতে খামারি ও পাইকারদের জন্য সহজ নিয়ম। অগ্রিম টাকা নয়, খামারে গিয়ে দেখে ওজন মেপে কিনুন।",
-  alternates: { canonical: "/safety" },
-};
+  path: "/safety",
+});
 
 const RULES = [
   [Ban, "অগ্রিম টাকা পাঠাবেন না", "“ট্রাক ভাড়া”, “বুকিং মানি” বা “ভ্যাকসিন খরচ” বলে বিকাশ/নগদে টাকা চাওয়া সবচেয়ে সাধারণ প্রতারণা। মুরগী হাতে না পাওয়া পর্যন্ত টাকা দেবেন না।"],

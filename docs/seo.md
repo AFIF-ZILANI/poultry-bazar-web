@@ -53,6 +53,21 @@ Sold or expired listings: keep the page (it has price history value), set
 
 ## Technical
 
+- **Site URL is never hard-coded.** `src/lib/site.ts` resolves it from `NEXT_PUBLIC_SITE_URL`, then
+  Vercel's `VERCEL_PROJECT_PRODUCTION_URL`. Set `NEXT_PUBLIC_SITE_URL=https://poultrybazarbd.com` when the
+  domain moves.
+- **Indexing switch.** `INDEXABLE` is false on Vercel previews and whenever `SITE_INDEXABLE=false`; then
+  robots.txt disallows everything, the sitemap is empty and every page is noindex.
+- **Every page uses `pageMeta()`** (`src/lib/seo.ts`) for title, description, canonical, og:url, share
+  image and robots. Never set `openGraph` directly: Next merges metadata shallowly and drops the rest.
+- **List variants:** sorted, searched and multi-filter views are `noindex, follow`; landing pages with 0
+  listings and expired ads are noindex and out of the sitemap.
+- **Product JSON-LD only with a price** (UnitPriceSpecification per KGM); otherwise breadcrumbs only.
+- **Performance budget:** illustrations are cached image files, not inline SVG; fonts are 2 static weights
+  per face, heading font not preloaded. Target LCP < 2.5 s with applied 4G throttling.
+- **Audit:** `npm run seo:audit -- https://<site>` must report 0 issues. Latest report:
+  `docs/seo-report-2026-10.md`.
+
 - `src/app/sitemap.ts`: home, rates, wanted, all categories, all districts, all active listings.
 - `src/app/robots.ts`: allow all; disallow `/account`, `/sell`, `/login`, `/register`; link sitemap.
 - `manifest.webmanifest`, square icons (generated `icon` and `apple-icon`).
