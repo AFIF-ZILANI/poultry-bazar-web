@@ -49,11 +49,11 @@ export function WantedForm({ categories, districts }: { categories: Category[]; 
 
   if (done) {
     return (
-      <div className="rounded-2xl border border-field-200 bg-field-50 p-8 text-center">
-        <CircleCheck className="mx-auto size-10 text-field-700" aria-hidden />
+      <div className="rounded-2xl border border-brand-200 bg-brand-50 p-8 text-center">
+        <CircleCheck className="mx-auto size-10 text-brand-700" aria-hidden />
         <h2 className="mt-3 text-[22px] font-bold">চাহিদা পোস্ট হয়েছে</h2>
         <p className="mt-2 text-[15px] text-muted">মিল আছে এমন খামারিরা আপনাকে কল করবেন। নতুন মিলের বিজ্ঞাপন এলে SMS-এ জানাব।</p>
-        <Link href="/wanted" className="mt-5 inline-block rounded-full bg-field-700 px-6 py-3 text-[16px] font-semibold text-white">
+        <Link href="/wanted" className="mt-5 inline-block rounded-full bg-brand-700 px-6 py-3 text-[16px] font-semibold text-white">
           সব চাহিদা দেখুন
         </Link>
       </div>
@@ -74,7 +74,7 @@ export function WantedForm({ categories, districts }: { categories: Category[]; 
         <NumberField id="w-offer" label="প্রস্তাবিত দর (ঐচ্ছিক)" value={v.offer} onChange={set("offer")} placeholder="১৭০" suffix="৳/কেজি" hint="না দিলে “আলোচনা সাপেক্ষে” দেখাবে" />
       </div>
       <TextField id="w-buyer" label="প্রতিষ্ঠানের নাম (ঐচ্ছিক)" value={v.buyer} onChange={set("buyer")} placeholder="যেমন: হক ট্রেডার্স" />
-      <button type="submit" className="h-12 w-full rounded-full bg-field-700 text-[17px] font-semibold text-white hover:bg-field-800">
+      <button type="submit" className="h-12 w-full rounded-full bg-brand-700 text-[17px] font-semibold text-white hover:bg-brand-800">
         চাহিদা পোস্ট করুন
       </button>
     </form>

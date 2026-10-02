@@ -29,7 +29,7 @@ export function SiteHeader() {
             <Link
               key={n.href}
               href={n.href}
-              className="rounded-lg px-3 py-2 text-[15px] font-medium text-ink/80 hover:bg-paper hover:text-field-900"
+              className="rounded-lg px-3 py-2 text-[15px] font-medium text-ink/80 hover:bg-paper hover:text-brand-900"
             >
               {n.label}
             </Link>
@@ -37,7 +37,7 @@ export function SiteHeader() {
         </nav>
 
         <div className="ml-auto flex items-center gap-2">
-          <Link href="/app" className="hidden h-10 items-center gap-1.5 rounded-full px-3 text-[15px] font-medium text-field-800 hover:bg-paper xl:inline-flex">
+          <Link href="/app" className="hidden h-10 items-center gap-1.5 rounded-full px-3 text-[15px] font-medium text-brand-800 hover:bg-paper xl:inline-flex">
             <Smartphone className="size-[18px]" aria-hidden /> অ্যাপ
           </Link>
           <AccountLink />

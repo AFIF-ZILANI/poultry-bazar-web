@@ -9,7 +9,7 @@ export function LocalWanted() {
   return (
     <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
       {mine.map((w) => (
-        <div key={w.id} className="rounded-[calc(var(--radius-card)+3px)] ring-2 ring-grain-400">
+        <div key={w.id} className="rounded-[calc(var(--radius-card)+3px)] ring-2 ring-yolk-400">
           <WantedCard w={w} />
         </div>
       ))}

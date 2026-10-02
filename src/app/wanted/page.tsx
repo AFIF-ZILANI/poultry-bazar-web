@@ -18,12 +18,12 @@ export default function WantedPage() {
     <div className="mx-auto max-w-[1200px] px-4 pb-10 pt-6 md:px-6 md:pt-8">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div className="max-w-2xl">
-          <h1 className="text-[30px] font-extrabold text-field-900 sm:text-[36px]">কিনতে চাই</h1>
+          <h1 className="text-[30px] font-extrabold text-brand-900 sm:text-[36px]">কিনতে চাই</h1>
           <p className="mt-2 text-[16px] text-ink/80">
             পাইকার ও আড়তদাররা এখানে জানান তাঁদের কোন মুরগী, কত পিছ, কোন ওজনে লাগবে। খামারি হিসেবে আপনার ব্যাচ মিললে বিজ্ঞাপনে চাহিদার নম্বর দিয়ে যোগাযোগ করুন।
           </p>
         </div>
-        <Link href="/wanted/new" className="inline-flex items-center gap-2 rounded-full bg-field-700 px-5 py-3 text-[16px] font-semibold text-white hover:bg-field-800">
+        <Link href="/wanted/new" className="inline-flex items-center gap-2 rounded-full bg-brand-700 px-5 py-3 text-[16px] font-semibold text-white hover:bg-brand-800">
           <Plus className="size-5" aria-hidden /> চাহিদা পোস্ট করুন
         </Link>
       </div>

@@ -13,10 +13,10 @@ export function ListingCard({ ad }: { ad: Ad }) {
   const seed = Number(ad.code.replace(/\D/g, ""));
 
   return (
-    <article className="group relative flex flex-col overflow-hidden rounded-[var(--radius-card)] border border-line bg-surface transition-shadow focus-within:ring-2 focus-within:ring-field-700 focus-within:ring-offset-2 hover:shadow-[var(--shadow-lift)]">
+    <article className="group relative flex flex-col overflow-hidden rounded-[var(--radius-card)] border border-line bg-surface transition-shadow focus-within:ring-2 focus-within:ring-brand-700 focus-within:ring-offset-2 hover:shadow-[var(--shadow-lift)]">
       <div className="relative aspect-[4/3]">
         <FlockArt category={ad.category} seed={seed} variant={ad.photos[0]} className="h-full w-full" label={false} />
-        <span className="absolute left-2 top-2 rounded-md bg-surface/95 px-2 py-0.5 font-display text-[12px] font-semibold tracking-wide text-field-800">
+        <span className="absolute left-2 top-2 rounded-md bg-surface/95 px-2 py-0.5 font-display text-[12px] font-semibold tracking-wide text-brand-800">
           {ad.code}
         </span>
         {sold && (

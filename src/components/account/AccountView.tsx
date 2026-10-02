@@ -46,7 +46,7 @@ export function AccountView({ seeded, categories, districts }: { seeded: Ad[]; c
     <div>
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
-          <h1 className="text-[28px] font-extrabold text-field-900">আমার বিজ্ঞাপন</h1>
+          <h1 className="text-[28px] font-extrabold text-brand-900">আমার বিজ্ঞাপন</h1>
           <p className="text-[15px] text-muted">
             {user?.name} · <span className="num">{user?.phone}</span>
           </p>
@@ -69,7 +69,7 @@ export function AccountView({ seeded, categories, districts }: { seeded: Ad[]; c
             type="button"
             aria-selected={tab === k}
             onClick={() => setTab(k)}
-            className={`shrink-0 border-b-2 px-4 py-3 text-[15px] font-semibold ${tab === k ? "border-field-700 text-field-900" : "border-transparent text-muted hover:text-ink"}`}
+            className={`shrink-0 border-b-2 px-4 py-3 text-[15px] font-semibold ${tab === k ? "border-brand-700 text-brand-900" : "border-transparent text-muted hover:text-ink"}`}
           >
             {l} <span className="num ml-1 rounded-full bg-paper px-2 py-0.5 text-[13px]">{bn(counts[k])}</span>
           </button>
@@ -82,7 +82,7 @@ export function AccountView({ seeded, categories, districts }: { seeded: Ad[]; c
             <ul className="space-y-3">
               {alerts.map((a) => (
                 <li key={a.id} className="flex flex-wrap items-center gap-3 rounded-[var(--radius-card)] border border-line bg-surface p-4">
-                  <Bell className="size-5 text-field-700" aria-hidden />
+                  <Bell className="size-5 text-brand-700" aria-hidden />
                   <div className="min-w-0 flex-1">
                     <Link href={`/ads${a.query}`} className="text-[16px] font-bold hover:underline">{a.label}</Link>
                     <p className="text-[14px] text-muted">নতুন মিলের বিজ্ঞাপন এলে {a.sms ? "SMS-এ জানানো হবে" : "শুধু এখানে দেখাবে"}</p>
@@ -92,7 +92,7 @@ export function AccountView({ seeded, categories, districts }: { seeded: Ad[]; c
                       type="checkbox"
                       checked={a.sms}
                       onChange={(e) => updateDemo((s) => ({ ...s, alerts: s.alerts.map((x) => (x.id === a.id ? { ...x, sms: e.target.checked } : x)) }))}
-                      className="size-4 accent-[var(--color-field-700)]"
+                      className="size-4 accent-[var(--color-brand-700)]"
                     />
                     SMS
                   </label>
@@ -116,7 +116,7 @@ export function AccountView({ seeded, categories, districts }: { seeded: Ad[]; c
               <li key={a.code} className="rounded-[var(--radius-card)] border border-line bg-surface p-4 sm:flex sm:items-center sm:gap-5">
                 <div className="min-w-0 flex-1">
                   <p className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                    <span className="rounded-md bg-field-100 px-2 py-0.5 font-display text-[13px] font-semibold text-field-800">{a.code}</span>
+                    <span className="rounded-md bg-brand-100 px-2 py-0.5 font-display text-[13px] font-semibold text-brand-800">{a.code}</span>
                     <span className="text-[17px] font-bold">{cat(a.category).name}</span>
                     <span className="text-[13px] text-muted">{relativeTime(a.postedAt)}</span>
                   </p>
@@ -139,7 +139,7 @@ export function AccountView({ seeded, categories, districts }: { seeded: Ad[]; c
                           setPrice(a.pricePerKg ? bn(a.pricePerKg) : "");
                           setPriceErr("");
                         }}
-                        className="h-10 rounded-full bg-field-700 px-4 text-[14px] font-semibold text-white hover:bg-field-800"
+                        className="h-10 rounded-full bg-brand-700 px-4 text-[14px] font-semibold text-white hover:bg-brand-800"
                       >
                         বিক্রি হয়েছে
                       </button>
@@ -152,7 +152,7 @@ export function AccountView({ seeded, categories, districts }: { seeded: Ad[]; c
                     <button
                       type="button"
                       onClick={() => patch(a.code, { status: "ACTIVE", postedAt: MOCK_NOW.toISOString(), expiresAt: new Date(MOCK_NOW.getTime() + 10 * 86400000).toISOString() })}
-                      className="inline-flex h-10 items-center gap-1.5 rounded-full bg-field-700 px-4 text-[14px] font-semibold text-white hover:bg-field-800"
+                      className="inline-flex h-10 items-center gap-1.5 rounded-full bg-brand-700 px-4 text-[14px] font-semibold text-white hover:bg-brand-800"
                     >
                       <RotateCcw className="size-4" aria-hidden /> আবার চালু করুন
                     </button>
@@ -192,7 +192,7 @@ export function AccountView({ seeded, categories, districts }: { seeded: Ad[]; c
             <div className="mt-4">
               <NumberField id="sold-price" label="বিক্রয়মূল্য" value={price} onChange={setPrice} suffix="৳/কেজি" error={priceErr} />
             </div>
-            <button type="submit" className="mt-5 h-12 w-full rounded-full bg-field-700 text-[16px] font-semibold text-white">
+            <button type="submit" className="mt-5 h-12 w-full rounded-full bg-brand-700 text-[16px] font-semibold text-white">
               বিক্রি হয়েছে হিসেবে চিহ্নিত করুন
             </button>
           </form>
@@ -231,7 +231,7 @@ function Empty({ text, href, cta }: { text: string; href: string; cta: string })
   return (
     <div className="rounded-[var(--radius-card)] border border-dashed border-line-strong bg-surface p-8 text-center">
       <p className="mx-auto max-w-[46ch] text-[16px] text-muted">{text}</p>
-      <Link href={href} className="mt-4 inline-block rounded-full bg-field-700 px-5 py-2.5 text-[15px] font-semibold text-white">
+      <Link href={href} className="mt-4 inline-block rounded-full bg-brand-700 px-5 py-2.5 text-[15px] font-semibold text-white">
         {cta}
       </Link>
     </div>

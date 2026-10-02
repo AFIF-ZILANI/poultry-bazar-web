@@ -31,7 +31,7 @@ export default function PrivacyPage() {
       </p>
       <h2>মুছে ফেলা</h2>
       <p>
-        যেকোনো সময় অ্যাকাউন্ট মুছতে পারবেন। নিয়ম <Link href="/contact" className="font-semibold text-field-700 underline">যোগাযোগ পাতায়</Link> দেওয়া আছে।
+        যেকোনো সময় অ্যাকাউন্ট মুছতে পারবেন। নিয়ম <Link href="/contact" className="font-semibold text-brand-700 underline">যোগাযোগ পাতায়</Link> দেওয়া আছে।
       </p>
     </ProsePage>
   );

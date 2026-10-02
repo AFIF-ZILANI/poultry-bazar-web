@@ -1,5 +1,5 @@
 // 14-day price sparkline. Single series, so no legend; always shown next to the number it summarises.
-// Line colour #1F7A49 validated with the dataviz palette checker (lightness, chroma, contrast).
+// Line colour #2F48B0 validated with the dataviz palette checker (lightness, chroma, contrast).
 export function Sparkline({ values, className = "h-8 w-24", label }: { values: number[]; className?: string; label: string }) {
   const w = 96;
   const h = 32;
@@ -12,9 +12,9 @@ export function Sparkline({ values, className = "h-8 w-24", label }: { values: n
   const [ex, ey] = pts[pts.length - 1];
   return (
     <svg viewBox={`0 0 ${w} ${h}`} className={className} role="img" aria-label={label}>
-      <path d={`${d} L${ex} ${h} L${pad} ${h} Z`} fill="#1F7A49" opacity="0.1" />
-      <path d={d} fill="none" stroke="#1F7A49" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      <circle cx={ex} cy={ey} r="4" fill="#1F7A49" stroke="#fff" strokeWidth="2" />
+      <path d={`${d} L${ex} ${h} L${pad} ${h} Z`} fill="#2F48B0" opacity="0.1" />
+      <path d={d} fill="none" stroke="#2F48B0" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx={ex} cy={ey} r="4" fill="#2F48B0" stroke="#fff" strokeWidth="2" />
     </svg>
   );
 }

@@ -17,7 +17,7 @@ export function FilterSheetButton({ active, children }: { active: number; childr
         <SlidersHorizontal className="size-4" aria-hidden />
         ফিল্টার
         {active > 0 && (
-          <span className="grid size-6 place-items-center rounded-full bg-field-700 text-[13px] text-white">{toBnDigits(active)}</span>
+          <span className="grid size-6 place-items-center rounded-full bg-brand-700 text-[13px] text-white">{toBnDigits(active)}</span>
         )}
       </button>
       <Sheet open={open} onClose={() => setOpen(false)} title="ফিল্টার">

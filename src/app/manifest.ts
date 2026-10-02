@@ -7,8 +7,8 @@ export default function manifest(): MetadataRoute.Manifest {
     description: "খামার থেকে সরাসরি মুরগী কেনাবেচা ও আজকের দর",
     start_url: "/",
     display: "standalone",
-    background_color: "#F6F5EF",
-    theme_color: "#0F3D24",
+    background_color: "#F5F4F0",
+    theme_color: "#141C47",
     lang: "bn",
     icons: [
       { src: "/icon.svg", sizes: "any", type: "image/svg+xml" },

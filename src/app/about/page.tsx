@@ -18,7 +18,7 @@ export default function AboutPage() {
       </p>
       <h2>আজকের দর কোথা থেকে আসে</h2>
       <p>
-        ব্যাচ বিক্রি হলে বিক্রেতা জানান কেজিপ্রতি কত দরে বিক্রি করলেন। গত ২৪ ঘণ্টার এমন সব দরের গড়ই <Link href="/rates" className="font-semibold text-field-700 underline">আজকের দর</Link>।
+        ব্যাচ বিক্রি হলে বিক্রেতা জানান কেজিপ্রতি কত দরে বিক্রি করলেন। গত ২৪ ঘণ্টার এমন সব দরের গড়ই <Link href="/rates" className="font-semibold text-brand-700 underline">আজকের দর</Link>।
         কোনো এলাকায় ৩টির কম বিক্রি হলে সেখানে দর দেখাই না, যাতে একজনের দামে পুরো এলাকার দাম ভুল না দেখায়।
       </p>
       <h2>যাঁদের জন্য</h2>
@@ -29,7 +29,7 @@ export default function AboutPage() {
       </ul>
       <h2>যোগাযোগ</h2>
       <p>
-        প্রশ্ন, পরামর্শ বা অভিযোগ থাকলে <Link href="/contact" className="font-semibold text-field-700 underline">যোগাযোগ পাতা</Link> দেখুন।
+        প্রশ্ন, পরামর্শ বা অভিযোগ থাকলে <Link href="/contact" className="font-semibold text-brand-700 underline">যোগাযোগ পাতা</Link> দেখুন।
       </p>
     </ProsePage>
   );

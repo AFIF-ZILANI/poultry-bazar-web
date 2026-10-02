@@ -211,11 +211,11 @@ export function SellWizard({
   if (published) {
     const shareText = encodeURIComponent(`বিক্রি হবে: ${cat!.name} ${bn(published.birdCount)} পিছ, গড় ${kg(published.avgWeightG)}, ${dist!.name}। Poultry BAZAR বিজ্ঞাপন ${published.code}`);
     return (
-      <div className="rounded-2xl border border-field-200 bg-surface p-6 text-center sm:p-10">
-        <CircleCheck className="mx-auto size-12 text-field-700" aria-hidden />
+      <div className="rounded-2xl border border-brand-200 bg-surface p-6 text-center sm:p-10">
+        <CircleCheck className="mx-auto size-12 text-brand-700" aria-hidden />
         <h2 className="mt-3 text-[26px] font-extrabold">বিজ্ঞাপন প্রকাশ হয়েছে</h2>
         <p className="mt-2 text-[16px] text-muted">আপনার বিজ্ঞাপন কোড</p>
-        <p className="num mt-1 inline-block rounded-xl bg-field-100 px-5 py-2 text-[28px] font-extrabold tracking-wider text-field-900">{published.code}</p>
+        <p className="num mt-1 inline-block rounded-xl bg-brand-100 px-5 py-2 text-[28px] font-extrabold tracking-wider text-brand-900">{published.code}</p>
         <p className="mx-auto mt-4 max-w-[46ch] text-[15px] text-muted">
           ১০ দিন চালু থাকবে। বিক্রি হলে “আমার বিজ্ঞাপন” থেকে “বিক্রি হয়েছে” চাপুন এবং দর জানান। ডেমোতে এই বিজ্ঞাপন শুধু আপনার অ্যাকাউন্টে দেখা যাবে।
         </p>
@@ -224,7 +224,7 @@ export function SellWizard({
             href={`https://wa.me/?text=${shareText}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-field-700 text-[16px] font-semibold text-white"
+            className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-brand-700 text-[16px] font-semibold text-white"
           >
             <MessageCircle className="size-5" aria-hidden /> হোয়াটসঅ্যাপে শেয়ার করুন
           </a>
@@ -241,8 +241,8 @@ export function SellWizard({
       <ol className="grid grid-cols-4 gap-2" aria-label="ধাপ">
         {STEPS.map((s, i) => (
           <li key={s} aria-current={i === step ? "step" : undefined} className="min-w-0">
-            <div className={`h-1.5 rounded-full ${i <= step ? "bg-field-700" : "bg-line"}`} />
-            <p className={`mt-1.5 truncate text-[13px] ${i === step ? "font-bold text-field-900" : "text-muted"}`}>
+            <div className={`h-1.5 rounded-full ${i <= step ? "bg-brand-700" : "bg-line"}`} />
+            <p className={`mt-1.5 truncate text-[13px] ${i === step ? "font-bold text-brand-900" : "text-muted"}`}>
               <span className="num">{toBnDigits(i + 1)}.</span> {s}
             </p>
           </li>
@@ -250,7 +250,7 @@ export function SellWizard({
       </ol>
 
       {restored && step === 0 && (
-        <p className="mt-4 flex items-center justify-between gap-3 rounded-xl bg-grain-100 px-4 py-2.5 text-[14px] text-[#5c4400]">
+        <p className="mt-4 flex items-center justify-between gap-3 rounded-xl bg-yolk-100 px-4 py-2.5 text-[14px] text-[#5c4400]">
           আগের অসম্পূর্ণ বিজ্ঞাপন ফিরিয়ে আনা হয়েছে।
           <button
             type="button"
@@ -288,10 +288,10 @@ export function SellWizard({
                 {categories.map((c) => (
                   <label
                     key={c.slug}
-                    className={`flex cursor-pointer items-center gap-2.5 rounded-xl border px-3.5 py-3 text-[16px] font-medium has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-field-700 ${d.category === c.slug ? "border-field-700 bg-field-50 text-field-900" : "border-line-strong"}`}
+                    className={`flex cursor-pointer items-center gap-2.5 rounded-xl border px-3.5 py-3 text-[16px] font-medium has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-brand-700 ${d.category === c.slug ? "border-brand-700 bg-brand-50 text-brand-900" : "border-line-strong"}`}
                   >
                     <input type="radio" name="category" value={c.slug} checked={d.category === c.slug} onChange={() => set("category")(c.slug)} className="sr-only" />
-                    <span className={`grid size-5 shrink-0 place-items-center rounded-full border-2 ${d.category === c.slug ? "border-field-700 bg-field-700" : "border-line-strong"}`} aria-hidden>
+                    <span className={`grid size-5 shrink-0 place-items-center rounded-full border-2 ${d.category === c.slug ? "border-brand-700 bg-brand-700" : "border-line-strong"}`} aria-hidden>
                       {d.category === c.slug && <Check className="size-3 text-white" strokeWidth={3} />}
                     </span>
                     {c.name}
@@ -324,7 +324,7 @@ export function SellWizard({
                 ).map(([v, l, h, Icon]) => (
                   <label
                     key={v}
-                    className={`cursor-pointer rounded-xl border p-4 has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-field-700 ${d.health === v ? (v === "HEALTHY" ? "border-field-700 bg-field-50" : "border-bad bg-bad-50") : "border-line-strong"}`}
+                    className={`cursor-pointer rounded-xl border p-4 has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-brand-700 ${d.health === v ? (v === "HEALTHY" ? "border-brand-700 bg-brand-50" : "border-bad bg-bad-50") : "border-line-strong"}`}
                   >
                     <input type="radio" name="health" value={v} checked={d.health === v} onChange={() => set("health")(v)} className="sr-only" />
                     <Icon className={`size-6 ${v === "HEALTHY" ? "text-ok" : "text-bad"}`} aria-hidden />
@@ -345,7 +345,7 @@ export function SellWizard({
                     ["negotiable", "দরদাম সাপেক্ষে"],
                   ] as const
                 ).map(([v, l]) => (
-                  <label key={v} className={`cursor-pointer rounded-full px-4 py-2 text-[15px] font-semibold has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-field-700 ${d.priceMode === v ? "bg-field-700 text-white" : "text-ink"}`}>
+                  <label key={v} className={`cursor-pointer rounded-full px-4 py-2 text-[15px] font-semibold has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-brand-700 ${d.priceMode === v ? "bg-brand-700 text-white" : "text-ink"}`}>
                     <input type="radio" name="priceMode" value={v} checked={d.priceMode === v} onChange={() => set("priceMode")(v)} className="sr-only" />
                     {l}
                   </label>
@@ -429,7 +429,7 @@ export function SellWizard({
                   <button
                     type="button"
                     onClick={() => fileRef.current?.click()}
-                    className="grid size-24 place-items-center rounded-xl border-2 border-dashed border-line-strong text-muted hover:border-field-700 hover:text-field-700"
+                    className="grid size-24 place-items-center rounded-xl border-2 border-dashed border-line-strong text-muted hover:border-brand-700 hover:text-brand-700"
                   >
                     <span className="flex flex-col items-center gap-1 text-[13px] font-medium">
                       {photos.length ? <ImagePlus className="size-6" aria-hidden /> : <Camera className="size-6" aria-hidden />}
@@ -464,7 +464,7 @@ export function SellWizard({
                 value={d.note}
                 onChange={(e) => set("note")(e.target.value)}
                 placeholder="যেমন: ট্রাক ঢোকার রাস্তা আছে, পুরো ব্যাচ একসাথে বিক্রি হবে"
-                className="w-full rounded-xl border border-line-strong px-3.5 py-3 text-[16px] outline-none focus:border-field-700 focus:ring-2 focus:ring-field-700/25"
+                className="w-full rounded-xl border border-line-strong px-3.5 py-3 text-[16px] outline-none focus:border-brand-700 focus:ring-2 focus:ring-brand-700/25"
               />
             </div>
           </div>
@@ -490,7 +490,7 @@ export function SellWizard({
                   <dt className="text-[15px] text-muted">{k}</dt>
                   <dd className="flex items-center gap-3 text-right">
                     <span className="num text-[16px] font-semibold">{v}</span>
-                    <button type="button" onClick={() => goto(s)} className="text-[14px] font-semibold text-field-700 hover:underline">
+                    <button type="button" onClick={() => goto(s)} className="text-[14px] font-semibold text-brand-700 hover:underline">
                       বদলান<span className="sr-only">: {k}</span>
                     </button>
                   </dd>
@@ -504,7 +504,7 @@ export function SellWizard({
                   <span className="num">{toBnDigits(progress)}%</span>
                 </div>
                 <div className="mt-1.5 h-2 overflow-hidden rounded-full bg-line">
-                  <div className="h-full rounded-full bg-field-700 transition-[width]" style={{ width: `${progress}%` }} />
+                  <div className="h-full rounded-full bg-brand-700 transition-[width]" style={{ width: `${progress}%` }} />
                 </div>
               </div>
             )}
@@ -523,7 +523,7 @@ export function SellWizard({
           <button
             type="submit"
             disabled={progress !== null}
-            className={`h-12 flex-1 rounded-full text-[17px] font-semibold text-white disabled:opacity-60 ${step === 3 ? "bg-comb-600 hover:bg-comb-700" : "bg-field-700 hover:bg-field-800"}`}
+            className={`h-12 flex-1 rounded-full text-[17px] font-semibold text-white disabled:opacity-60 ${step === 3 ? "bg-comb-600 hover:bg-comb-700" : "bg-brand-700 hover:bg-brand-800"}`}
           >
             {step === 3 ? (progress !== null ? "প্রকাশ হচ্ছে…" : "বিজ্ঞাপন প্রকাশ করুন") : "পরের ধাপ"}
           </button>

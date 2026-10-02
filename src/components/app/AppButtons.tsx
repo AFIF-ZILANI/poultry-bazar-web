@@ -19,12 +19,12 @@ export function AppButtons({ dark = false }: { dark?: boolean }) {
     <div className="flex flex-col gap-3 sm:flex-row">
       <a
         href={APP.apkUrl}
-        className={`inline-flex items-center gap-3 rounded-2xl px-5 py-3 ${dark ? "bg-grain-400 text-field-950 hover:bg-grain-500" : "bg-field-700 text-white hover:bg-field-800"}`}
+        className={`inline-flex items-center gap-3 rounded-2xl px-5 py-3 ${dark ? "bg-yolk-400 text-brand-950 hover:bg-yolk-500" : "bg-brand-700 text-white hover:bg-brand-800"}`}
       >
         <Download className="size-6 shrink-0" aria-hidden />
         <span className="flex flex-col leading-tight">
           <span className="text-[17px] font-bold">Android অ্যাপ ডাউনলোড</span>
-          <span className={`text-[13px] ${dark ? "text-field-900" : "text-field-100"}`}>APK · সংস্করণ {toBnDigits(APP.version)} · বিনামূল্যে</span>
+          <span className={`text-[13px] ${dark ? "text-brand-900" : "text-brand-100"}`}>APK · সংস্করণ {toBnDigits(APP.version)} · বিনামূল্যে</span>
         </span>
       </a>
       {APP.playStoreUrl ? (
@@ -37,7 +37,7 @@ export function AppButtons({ dark = false }: { dark?: boolean }) {
         </a>
       ) : (
         <span
-          className={`inline-flex items-center gap-3 rounded-2xl border px-5 py-3 ${dark ? "border-white/25 text-field-100" : "border-line-strong text-muted"}`}
+          className={`inline-flex items-center gap-3 rounded-2xl border px-5 py-3 ${dark ? "border-white/25 text-brand-100" : "border-line-strong text-muted"}`}
         >
           <PlayGlyph />
           <span className="flex flex-col leading-tight">

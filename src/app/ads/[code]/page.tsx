@@ -114,7 +114,7 @@ export default async function AdPage(props: PageProps<"/ads/[code]">) {
       </nav>
 
       {(sold || expired) && (
-        <p role="status" className="mt-4 flex items-center gap-2 rounded-xl bg-grain-100 px-4 py-3 text-[15px] font-medium text-[#5c4400]">
+        <p role="status" className="mt-4 flex items-center gap-2 rounded-xl bg-yolk-100 px-4 py-3 text-[15px] font-medium text-[#5c4400]">
           <Info className="size-5 shrink-0" aria-hidden />
           {sold
             ? `এই ব্যাচ বিক্রি হয়ে গেছে${ad.soldPricePerKg ? `, বিক্রয়মূল্য ${perKg(ad.soldPricePerKg)}` : ""}। নিচে একই রকম বিজ্ঞাপন দেখুন।`
@@ -131,7 +131,7 @@ export default async function AdPage(props: PageProps<"/ads/[code]">) {
           <div className="space-y-4 lg:sticky lg:top-24">
             <section className="rounded-[var(--radius-card)] border border-line bg-surface p-5">
               <div className="flex items-center justify-between gap-3">
-                <span className="rounded-md bg-field-100 px-2 py-0.5 font-display text-[13px] font-semibold tracking-wide text-field-800">{ad.code}</span>
+                <span className="rounded-md bg-brand-100 px-2 py-0.5 font-display text-[13px] font-semibold tracking-wide text-brand-800">{ad.code}</span>
                 <HealthBadge health={ad.health} />
               </div>
               <h1 className="mt-3 text-[26px] font-extrabold leading-tight sm:text-[30px]">
@@ -156,7 +156,7 @@ export default async function AdPage(props: PageProps<"/ads/[code]">) {
                 ) : null}
                 <p className="mt-2 border-t border-line pt-2 text-[14px] text-muted">
                   আজকের গড় দর ({ref.scope}): <span className="num font-semibold text-ink">{perKg(ref.price)}</span>{" "}
-                  <Link href="/rates" className="text-field-700 underline-offset-2 hover:underline">দর দেখুন</Link>
+                  <Link href="/rates" className="text-brand-700 underline-offset-2 hover:underline">দর দেখুন</Link>
                 </p>
               </div>
 
@@ -170,7 +170,7 @@ export default async function AdPage(props: PageProps<"/ads/[code]">) {
             <section aria-labelledby="seller-title" className="rounded-[var(--radius-card)] border border-line bg-surface p-5">
               <h2 id="seller-title" className="sr-only">বিক্রেতা</h2>
               <div className="flex items-start gap-3">
-                <span className="grid size-12 shrink-0 place-items-center rounded-full bg-field-100 font-display text-[20px] font-bold text-field-800" aria-hidden>
+                <span className="grid size-12 shrink-0 place-items-center rounded-full bg-brand-100 font-display text-[20px] font-bold text-brand-800" aria-hidden>
                   {seller.name.replace("মোঃ ", "").slice(0, 1)}
                 </span>
                 <div className="min-w-0">
@@ -234,7 +234,7 @@ export default async function AdPage(props: PageProps<"/ads/[code]">) {
             <h2 id="similar-title" className="text-[22px] font-bold">
               একই রকম আরও {cat.name}
             </h2>
-            <Link href={`/category/${cat.slug}`} className="text-[15px] font-semibold text-field-700 hover:underline">
+            <Link href={`/category/${cat.slug}`} className="text-[15px] font-semibold text-brand-700 hover:underline">
               সব দেখুন
             </Link>
           </div>

@@ -21,8 +21,8 @@ export default function ContactPage() {
       <ul className="!ml-0 grid gap-3 sm:grid-cols-3 [&>li]:!ml-0 [&>li]:list-none [&>li]:!pl-0">
         {cards.map(({ Icon, t, v, href, d }) => (
           <li key={t}>
-            <a href={href} className="block h-full rounded-2xl border border-line bg-surface p-5 hover:border-field-700">
-              <Icon className="size-6 text-field-700" aria-hidden />
+            <a href={href} className="block h-full rounded-2xl border border-line bg-surface p-5 hover:border-brand-700">
+              <Icon className="size-6 text-brand-700" aria-hidden />
               <span className="mt-3 block text-[15px] text-muted">{t}</span>
               <span className="num block break-all text-[18px] font-bold leading-snug">{v}</span>
               <span className="mt-1 block text-[14px] leading-6 text-muted">{d}</span>

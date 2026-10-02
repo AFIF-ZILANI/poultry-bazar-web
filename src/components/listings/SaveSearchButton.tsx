@@ -16,7 +16,7 @@ export function SaveSearchButton({ filters, query, label }: { filters: AdFilters
     return (
       <Link
         href={`/login?next=${encodeURIComponent(`/ads${query}`)}`}
-        className="inline-flex h-11 items-center gap-2 rounded-full border border-line-strong bg-surface px-4 text-[15px] font-semibold hover:border-field-700"
+        className="inline-flex h-11 items-center gap-2 rounded-full border border-line-strong bg-surface px-4 text-[15px] font-semibold hover:border-brand-700"
       >
         <BellPlus className="size-4" aria-hidden /> নতুন বিজ্ঞাপনে জানান
       </Link>
@@ -33,7 +33,7 @@ export function SaveSearchButton({ filters, query, label }: { filters: AdFilters
         }));
         setJustSaved(true);
       }}
-      className="inline-flex h-11 items-center gap-2 rounded-full border border-line-strong bg-surface px-4 text-[15px] font-semibold enabled:hover:border-field-700 disabled:border-field-200 disabled:bg-field-50 disabled:text-field-800"
+      className="inline-flex h-11 items-center gap-2 rounded-full border border-line-strong bg-surface px-4 text-[15px] font-semibold enabled:hover:border-brand-700 disabled:border-brand-200 disabled:bg-brand-50 disabled:text-brand-800"
     >
       {saved ? <BellRing className="size-4" aria-hidden /> : <BellPlus className="size-4" aria-hidden />}
       {saved ? (justSaved ? "সেভ হয়েছে, SMS-এ জানাব" : "এই খোঁজ সেভ করা আছে") : "নতুন বিজ্ঞাপনে জানান"}

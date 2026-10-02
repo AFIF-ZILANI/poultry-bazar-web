@@ -48,7 +48,7 @@ export function ListingsView({ f, heading, intro }: { f: AdFilters; heading: str
   return (
     <div className="mx-auto max-w-[1200px] px-4 pb-10 pt-6 md:px-6 md:pt-8">
       <div className="max-w-3xl">
-        <h1 className="text-[28px] font-extrabold text-field-900 sm:text-[34px]">{heading}</h1>
+        <h1 className="text-[28px] font-extrabold text-brand-900 sm:text-[34px]">{heading}</h1>
         {intro}
       </div>
 
@@ -76,7 +76,7 @@ export function ListingsView({ f, heading, intro }: { f: AdFilters; heading: str
                 <li key={c.label}>
                   <Link
                     href={`/ads${filtersToQuery(f, { ...c.remove, page: undefined })}`}
-                    className="inline-flex items-center gap-1 rounded-full bg-field-100 py-1 pl-3 pr-2 text-[14px] font-medium text-field-900 hover:bg-field-200"
+                    className="inline-flex items-center gap-1 rounded-full bg-brand-100 py-1 pl-3 pr-2 text-[14px] font-medium text-brand-900 hover:bg-brand-200"
                   >
                     {c.label} <X className="size-3.5" aria-label="সরান" />
                   </Link>
@@ -93,7 +93,7 @@ export function ListingsView({ f, heading, intro }: { f: AdFilters; heading: str
                   key={s.key}
                   href={`/ads${filtersToQuery(f, { sort: s.key, page: undefined })}`}
                   aria-current={current ? "true" : undefined}
-                  className={`shrink-0 border-b-2 px-3 py-2.5 text-[15px] font-medium ${current ? "border-field-700 text-field-900" : "border-transparent text-muted hover:text-ink"}`}
+                  className={`shrink-0 border-b-2 px-3 py-2.5 text-[15px] font-medium ${current ? "border-brand-700 text-brand-900" : "border-transparent text-muted hover:text-ink"}`}
                 >
                   {s.label}
                 </Link>
@@ -117,7 +117,7 @@ export function ListingsView({ f, heading, intro }: { f: AdFilters; heading: str
                 <Link href="/ads" className="rounded-full border border-line-strong px-4 py-2 text-[15px] font-semibold">
                   সব বিজ্ঞাপন
                 </Link>
-                <Link href="/wanted/new" className="rounded-full bg-field-700 px-4 py-2 text-[15px] font-semibold text-white">
+                <Link href="/wanted/new" className="rounded-full bg-brand-700 px-4 py-2 text-[15px] font-semibold text-white">
                   চাহিদা পোস্ট করুন
                 </Link>
               </div>

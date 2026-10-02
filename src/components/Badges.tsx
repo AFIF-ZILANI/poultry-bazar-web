@@ -16,7 +16,7 @@ export function HealthBadge({ health }: { health: Health }) {
 export function VerifiedBadge({ small = false }: { small?: boolean }) {
   return (
     <span
-      className={`inline-flex items-center gap-1 rounded-full bg-field-100 font-semibold text-field-800 ${small ? "px-2 py-0.5 text-[12px]" : "px-2.5 py-1 text-[13px]"}`}
+      className={`inline-flex items-center gap-1 rounded-full bg-brand-100 font-semibold text-brand-800 ${small ? "px-2 py-0.5 text-[12px]" : "px-2.5 py-1 text-[13px]"}`}
     >
       <BadgeCheck className={small ? "size-3.5" : "size-4"} aria-hidden /> যাচাইকৃত বিক্রেতা
     </span>

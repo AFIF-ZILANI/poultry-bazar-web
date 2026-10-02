@@ -15,7 +15,7 @@ export function SearchBox() {
             name="q"
             type="search"
             placeholder="যেমন: ব্রয়লার, সোনালী, শ্রীপুর"
-            className="h-12 w-full rounded-xl bg-paper pl-11 pr-3 text-[16px] outline-none placeholder:text-muted/80 focus:bg-surface focus:ring-2 focus:ring-field-700"
+            className="h-12 w-full rounded-xl bg-paper pl-11 pr-3 text-[16px] outline-none placeholder:text-muted/80 focus:bg-surface focus:ring-2 focus:ring-brand-700"
           />
         </label>
         <label className="sm:w-48">
@@ -23,7 +23,7 @@ export function SearchBox() {
           <select
             name="district"
             defaultValue=""
-            className="h-12 w-full rounded-xl bg-paper px-3 text-[16px] outline-none focus:ring-2 focus:ring-field-700"
+            className="h-12 w-full rounded-xl bg-paper px-3 text-[16px] outline-none focus:ring-2 focus:ring-brand-700"
           >
             <option value="">সব জেলা</option>
             {divisions.map((dv) => (
@@ -39,7 +39,7 @@ export function SearchBox() {
             ))}
           </select>
         </label>
-        <button type="submit" className="h-12 rounded-xl bg-field-700 px-6 text-[16px] font-semibold text-white hover:bg-field-800">
+        <button type="submit" className="h-12 rounded-xl bg-brand-700 px-6 text-[16px] font-semibold text-white hover:bg-brand-800">
           খুঁজুন
         </button>
       </div>

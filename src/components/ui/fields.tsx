@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { toBnDigits } from "@/lib/format";
 
 export const inputCls =
-  "h-12 w-full rounded-xl border border-line-strong bg-surface px-3.5 text-[16px] outline-none placeholder:text-muted/70 focus:border-field-700 focus:ring-2 focus:ring-field-700/25 aria-[invalid=true]:border-bad";
+  "h-12 w-full rounded-xl border border-line-strong bg-surface px-3.5 text-[16px] outline-none placeholder:text-muted/70 focus:border-brand-700 focus:ring-2 focus:ring-brand-700/25 aria-[invalid=true]:border-bad";
 
 function Wrap({ id, label, hint, error, children }: { id: string; label: string; hint?: ReactNode; error?: string; children: ReactNode }) {
   return (

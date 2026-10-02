@@ -58,7 +58,7 @@ export function Gallery({ category, seed, photos, alt }: { category: CategorySlu
               onClick={() => go(k)}
               aria-label={`ছবি ${toBnDigits(k + 1)} দেখুন`}
               aria-current={k === i ? "true" : undefined}
-              className={`w-16 overflow-hidden rounded-lg border-2 sm:w-20 ${k === i ? "border-field-700" : "border-transparent opacity-70 hover:opacity-100"}`}
+              className={`w-16 overflow-hidden rounded-lg border-2 sm:w-20 ${k === i ? "border-brand-700" : "border-transparent opacity-70 hover:opacity-100"}`}
             >
               <FlockArt category={category} seed={seed + k * 13} variant={v} className="aspect-[4/3] w-full" label={false} />
             </button>

@@ -39,7 +39,7 @@ const FAQ = [
 ];
 
 export default async function AppPage() {
-  const qr = await QRCode.toString(APP.pageUrl, { type: "svg", margin: 0, color: { dark: "#0F3D24", light: "#00000000" } });
+  const qr = await QRCode.toString(APP.pageUrl, { type: "svg", margin: 0, color: { dark: "#141C47", light: "#00000000" } });
 
   return (
     <>
@@ -58,27 +58,27 @@ export default async function AppPage() {
         }}
       />
 
-      <section className="overflow-hidden bg-field-900 text-white">
+      <section className="overflow-hidden bg-brand-900 text-white">
         <div className="mx-auto grid max-w-[1200px] items-center gap-10 px-4 py-12 md:px-6 md:py-16 lg:grid-cols-[1.2fr_1fr]">
           <div>
-            <p className="text-[14px] font-semibold uppercase tracking-wider text-grain-400">Android অ্যাপ</p>
+            <p className="text-[14px] font-semibold uppercase tracking-wider text-yolk-400">Android অ্যাপ</p>
             <h1 className="mt-2 text-[38px] font-extrabold leading-[1.1] sm:text-[52px]">
               খামারে দাঁড়িয়েই
               <br />
               বিজ্ঞাপন দিন
             </h1>
-            <p className="mt-4 max-w-[48ch] text-[17px] text-field-100">
+            <p className="mt-4 max-w-[48ch] text-[17px] text-brand-100">
               ছবি তুলুন, সংখ্যা আর ওজন লিখুন, ব্যস। আজকের দর, পাইকারের চাহিদা আর আপনার সব বিজ্ঞাপন এক অ্যাপে, কম ইন্টারনেটেও চলে।
             </p>
             <div className="mt-7">
               <AppButtons dark />
             </div>
-            <p className="mt-4 text-[14px] text-field-200">
+            <p className="mt-4 text-[14px] text-brand-200">
               শুধু poultrybazarbd.com থেকে ডাউনলোড করুন। আমরা কখনো হোয়াটসঅ্যাপ বা মেসেঞ্জারে APK পাঠাই না।
             </p>
           </div>
           <div className="relative">
-            <div className="absolute inset-x-10 bottom-0 top-10 rounded-full bg-field-700/40 blur-3xl" aria-hidden />
+            <div className="absolute inset-x-10 bottom-0 top-10 rounded-full bg-brand-700/40 blur-3xl" aria-hidden />
             <PhoneMockup className="relative" />
           </div>
         </div>
@@ -89,7 +89,7 @@ export default async function AppPage() {
         <ul className="mt-6 grid gap-x-8 gap-y-7 sm:grid-cols-2 lg:grid-cols-3">
           {FEATURES.map(([Icon, t, d]) => (
             <li key={t} className="flex gap-4">
-              <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-field-100 text-field-800">
+              <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-brand-100 text-brand-800">
                 <Icon className="size-5" aria-hidden />
               </span>
               <div>
@@ -108,7 +108,7 @@ export default async function AppPage() {
           <ol className="mt-6 space-y-5">
             {STEPS.map(([t, d], i) => (
               <li key={t} className="flex gap-4">
-                <span className="num grid size-9 shrink-0 place-items-center rounded-full bg-field-700 text-[17px] font-bold text-white">{toBnDigits(i + 1)}</span>
+                <span className="num grid size-9 shrink-0 place-items-center rounded-full bg-brand-700 text-[17px] font-bold text-white">{toBnDigits(i + 1)}</span>
                 <div>
                   <h3 className="text-[17px] font-bold">{t}</h3>
                   <p className="text-[15px] text-muted">{d}</p>
@@ -118,18 +118,18 @@ export default async function AppPage() {
           </ol>
           <p className="mt-6 text-[15px]">
             সমস্যা হলে{" "}
-            <Link href="/contact" className="font-semibold text-field-700 underline">
+            <Link href="/contact" className="font-semibold text-brand-700 underline">
               আমাদের সাথে যোগাযোগ করুন
             </Link>
             , ফোনে ধাপে ধাপে সাহায্য করব।
           </p>
         </div>
 
-        <aside className="flex flex-col items-center justify-center rounded-2xl bg-field-50 p-8 text-center">
+        <aside className="flex flex-col items-center justify-center rounded-2xl bg-brand-50 p-8 text-center">
           <h2 className="text-[20px] font-bold">কম্পিউটার থেকে দেখছেন?</h2>
           <p className="mt-1 text-[15px] text-muted">ফোনের ক্যামেরা দিয়ে স্ক্যান করুন, এই পাতা ফোনে খুলবে।</p>
           <div className="mt-5 size-44 rounded-2xl bg-surface p-4 shadow-[var(--shadow-lift)] [&>svg]:size-full" role="img" aria-label="poultrybazarbd.com/app এর QR কোড" dangerouslySetInnerHTML={{ __html: qr }} />
-          <p className="mt-4 font-display text-[16px] font-semibold text-field-900">poultrybazarbd.com/app</p>
+          <p className="mt-4 font-display text-[16px] font-semibold text-brand-900">poultrybazarbd.com/app</p>
         </aside>
       </section>
 
@@ -140,7 +140,7 @@ export default async function AppPage() {
             <details key={q} className="group px-5 py-4 [&_summary::-webkit-details-marker]:hidden">
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-[17px] font-semibold">
                 {q}
-                <span className="text-[22px] leading-none text-field-700 transition-transform group-open:rotate-45" aria-hidden>
+                <span className="text-[22px] leading-none text-brand-700 transition-transform group-open:rotate-45" aria-hidden>
                   +
                 </span>
               </summary>

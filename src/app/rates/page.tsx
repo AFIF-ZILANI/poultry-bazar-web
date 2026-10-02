@@ -47,8 +47,8 @@ export default function RatesPage() {
           creator: { "@type": "Organization", name: "Poultry BAZAR" },
         }}
       />
-      <p className="text-[14px] font-semibold text-field-700">{today}, সকাল ৯টা পর্যন্ত হালনাগাদ</p>
-      <h1 className="mt-1 text-[30px] font-extrabold text-field-900 sm:text-[38px]">আজকের মুরগীর দর</h1>
+      <p className="text-[14px] font-semibold text-brand-700">{today}, সকাল ৯টা পর্যন্ত হালনাগাদ</p>
+      <h1 className="mt-1 text-[30px] font-extrabold text-brand-900 sm:text-[38px]">আজকের মুরগীর দর</h1>
       <p className="mt-2 max-w-[62ch] text-[16px] text-ink/80">
         খামার থেকে জীবিত ওজনে বিক্রির দর, কেজিপ্রতি। Poultry BAZAR-এ বিক্রেতারা ব্যাচ বিক্রির পর যে দাম জানান, গত ২৪ ঘণ্টার সেই দামের গড়।
         কোনো এলাকায় ৩টির কম বিক্রি হলে সেখানে দর দেখানো হয় না।
@@ -74,7 +74,7 @@ export default function RatesPage() {
                 return (
                   <tr key={r.category} className="border-b border-line last:border-0">
                     <th scope="row" className="px-4 py-3 font-semibold">
-                      <Link href={`/category/${c.slug}`} className="hover:text-field-700 hover:underline">{c.name}</Link>
+                      <Link href={`/category/${c.slug}`} className="hover:text-brand-700 hover:underline">{c.name}</Link>
                     </th>
                     <td className="num px-4 py-3 text-right text-[20px] font-bold">{bn(r.today)}</td>
                     <td className="px-4 py-3 text-right">
@@ -135,12 +135,12 @@ export default function RatesPage() {
         </div>
       </section>
 
-      <section className="mt-10 rounded-2xl bg-field-900 p-6 text-white sm:flex sm:items-center sm:justify-between sm:gap-6">
+      <section className="mt-10 rounded-2xl bg-brand-900 p-6 text-white sm:flex sm:items-center sm:justify-between sm:gap-6">
         <div>
           <h2 className="text-[22px] font-bold">আপনার বিক্রির দর জানান, বাজার ঠিক থাকুক</h2>
-          <p className="mt-1 text-[15px] text-field-200">বিজ্ঞাপন “বিক্রি হয়েছে” করার সময় দর দিলে সেটি এই হিসাবে যোগ হয়। আপনার নাম বা নম্বর দেখানো হয় না।</p>
+          <p className="mt-1 text-[15px] text-brand-200">বিজ্ঞাপন “বিক্রি হয়েছে” করার সময় দর দিলে সেটি এই হিসাবে যোগ হয়। আপনার নাম বা নম্বর দেখানো হয় না।</p>
         </div>
-        <Link href="/account" className="mt-4 inline-flex shrink-0 rounded-full bg-grain-400 px-5 py-3 text-[15px] font-bold text-field-950 hover:bg-grain-500 sm:mt-0">
+        <Link href="/account" className="mt-4 inline-flex shrink-0 rounded-full bg-yolk-400 px-5 py-3 text-[15px] font-bold text-brand-950 hover:bg-yolk-500 sm:mt-0">
           আমার বিজ্ঞাপন
         </Link>
       </section>

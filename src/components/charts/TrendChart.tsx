@@ -75,22 +75,22 @@ export function TrendChart({ points, title }: { points: RatePoint[]; title: stri
       >
         {ticks.map((t) => (
           <g key={t}>
-            <line x1={m.l} x2={m.l + iw} y1={y(t)} y2={y(t)} stroke="#E6E8E1" strokeWidth="1" />
-            <text x={m.l - 8} y={y(t) + 4} textAnchor="end" fontSize="11" fill="#536058" className="num">
+            <line x1={m.l} x2={m.l + iw} y1={y(t)} y2={y(t)} stroke="#E6E5DF" strokeWidth="1" />
+            <text x={m.l - 8} y={y(t) + 4} textAnchor="end" fontSize="11" fill="#565C6B" className="num">
               {bn(t)}
             </text>
           </g>
         ))}
         {[0, Math.floor(last / 2), last].map((i) => (
-          <text key={i} x={x(i)} y={H - 8} textAnchor={i === 0 ? "start" : i === last ? "end" : "middle"} fontSize="11" fill="#536058">
+          <text key={i} x={x(i)} y={H - 8} textAnchor={i === 0 ? "start" : i === last ? "end" : "middle"} fontSize="11" fill="#565C6B">
             {dateBn(points[i].date)}
           </text>
         ))}
-        <path d={area} fill="#1F7A49" opacity="0.1" />
-        <path d={d} fill="none" stroke="#1F7A49" strokeWidth="2" strokeLinejoin="round" strokeLinecap="round" />
-        {hover !== null && <line x1={x(active)} x2={x(active)} y1={m.t} y2={m.t + ih} stroke="#9AA39C" strokeWidth="1" />}
-        <circle cx={x(active)} cy={y(p.price)} r="5" fill="#1F7A49" stroke="#fff" strokeWidth="2" />
-        <text x={x(last) + 10} y={y(points[last].price) + 4} fontSize="12" fontWeight="700" fill="#18211B" className="num">
+        <path d={area} fill="#2F48B0" opacity="0.1" />
+        <path d={d} fill="none" stroke="#2F48B0" strokeWidth="2" strokeLinejoin="round" strokeLinecap="round" />
+        {hover !== null && <line x1={x(active)} x2={x(active)} y1={m.t} y2={m.t + ih} stroke="#9C9FAA" strokeWidth="1" />}
+        <circle cx={x(active)} cy={y(p.price)} r="5" fill="#2F48B0" stroke="#fff" strokeWidth="2" />
+        <text x={x(last) + 10} y={y(points[last].price) + 4} fontSize="12" fontWeight="700" fill="#161A26" className="num">
           ৳{bn(points[last].price)}
         </text>
       </svg>

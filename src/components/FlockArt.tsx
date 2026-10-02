@@ -4,18 +4,18 @@ import type { CategorySlug } from "@/lib/types";
 
 type Palette = { body: string[]; shade: string; comb: string | null; beak: string };
 const PALETTES: Record<CategorySlug, Palette> = {
-  broiler: { body: ["#FBFAF5"], shade: "#E4DFCF", comb: "#D2461B", beak: "#E8B547" },
-  sonali: { body: ["#C98632", "#B8752A", "#D69A45"], shade: "#8E5A1E", comb: "#C9351A", beak: "#E8B547" },
-  layer: { body: ["#8C4B2C", "#7A3F24"], shade: "#5C2E19", comb: "#D2461B", beak: "#E8B547" },
+  broiler: { body: ["#FBFAF5"], shade: "#E4DFCF", comb: "#D9461A", beak: "#F2B807" },
+  sonali: { body: ["#C98632", "#B8752A", "#D69A45"], shade: "#8E5A1E", comb: "#C9351A", beak: "#F2B807" },
+  layer: { body: ["#8C4B2C", "#7A3F24"], shade: "#5C2E19", comb: "#D9461A", beak: "#F2B807" },
   deshi: { body: ["#2F2A25", "#A0522D", "#D9A441", "#5B4636"], shade: "#1F1B17", comb: "#C9351A", beak: "#D9A12E" },
   duck: { body: ["#F6F3EA", "#B79A63"], shade: "#D9D2BF", comb: null, beak: "#E8902F" },
   quail: { body: ["#8A6A45", "#9C7A50"], shade: "#5E4628", comb: null, beak: "#4A3A28" },
 };
 
 const SCENES = [
-  { wall: "#E8EDE4", floor: "#E3D3A8", floorDark: "#D2BF8C", light: "#F7F3DF" },
+  { wall: "#ECE9E1", floor: "#E3D3A8", floorDark: "#D2BF8C", light: "#F7F3DF" },
   { wall: "#E9E4D6", floor: "#DCC99A", floorDark: "#C9B27C", light: "#FBF1D2" },
-  { wall: "#DDE7E0", floor: "#E6D8B2", floorDark: "#D4C291", light: "#EEF5EC" },
+  { wall: "#E4E3DD", floor: "#E6D8B2", floorDark: "#D4C291", light: "#F3F1EA" },
   { wall: "#EDE7DA", floor: "#D8C495", floorDark: "#C4AD78", light: "#FFF4DA" },
 ];
 
@@ -110,15 +110,15 @@ export function FlockArt({
     }
   }
   return (
-    <div className={`relative overflow-hidden bg-[#E8EDE4] ${className}`}>
+    <div className={`relative overflow-hidden bg-[#ECE9E1] ${className}`}>
       <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" className="block h-full w-full" aria-hidden>
         <rect width="400" height="300" fill={sc.wall} />
         {/* side-wall curtain openings, typical of BD open-sided sheds */}
         {[0, 1, 2, 3, 4].map((i) => (
           <rect key={i} x={12 + i * 80} y="38" width="58" height="58" rx="3" fill={sc.light} />
         ))}
-        <rect y="30" width="400" height="8" fill="#7C8B7F" opacity="0.35" />
-        <rect y="96" width="400" height="6" fill="#7C8B7F" opacity="0.3" />
+        <rect y="30" width="400" height="8" fill="#8C8778" opacity="0.35" />
+        <rect y="96" width="400" height="6" fill="#8C8778" opacity="0.3" />
         <rect y="122" width="400" height="178" fill={sc.floor} />
         <rect y="122" width="400" height="10" fill={sc.floorDark} opacity="0.7" />
         {/* feeder line */}

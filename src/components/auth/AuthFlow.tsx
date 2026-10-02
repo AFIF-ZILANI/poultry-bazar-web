@@ -87,9 +87,9 @@ export function AuthFlow({ mode, next }: { mode: Mode; next?: string }) {
 
   return (
     <div className="rounded-2xl border border-line bg-surface p-6 sm:p-8">
-      <h1 className="text-[26px] font-extrabold text-field-900">{step === "otp" ? "কোড যাচাই করুন" : step === "newpass" ? "নতুন পাসওয়ার্ড দিন" : titles[mode]}</h1>
+      <h1 className="text-[26px] font-extrabold text-brand-900">{step === "otp" ? "কোড যাচাই করুন" : step === "newpass" ? "নতুন পাসওয়ার্ড দিন" : titles[mode]}</h1>
 
-      <p className="mt-3 flex gap-2 rounded-xl bg-grain-100 px-3.5 py-2.5 text-[14px] text-[#5c4400]">
+      <p className="mt-3 flex gap-2 rounded-xl bg-yolk-100 px-3.5 py-2.5 text-[14px] text-[#5c4400]">
         <FlaskConical className="mt-0.5 size-4 shrink-0" aria-hidden />
         <span>
           ডেমো সংস্করণ: যেকোনো সঠিক মোবাইল নম্বর ও ৮ অক্ষরের পাসওয়ার্ড দিন।{step === "otp" ? ` যাচাই কোড ${toBnDigits(DEMO_OTP)}।` : ""} আসল সাইটে কোড শুধু SMS-এ যাবে।
@@ -149,12 +149,12 @@ export function AuthFlow({ mode, next }: { mode: Mode; next?: string }) {
           )}
           {mode === "login" && (
             <p className="text-right">
-              <Link href={`/forgot-password${next ? `?next=${encodeURIComponent(next)}` : ""}`} className="text-[15px] font-semibold text-field-700 hover:underline">
+              <Link href={`/forgot-password${next ? `?next=${encodeURIComponent(next)}` : ""}`} className="text-[15px] font-semibold text-brand-700 hover:underline">
                 পাসওয়ার্ড ভুলে গেছেন?
               </Link>
             </p>
           )}
-          <button type="submit" disabled={busy} className="h-12 w-full rounded-full bg-field-700 text-[17px] font-semibold text-white hover:bg-field-800 disabled:opacity-60">
+          <button type="submit" disabled={busy} className="h-12 w-full rounded-full bg-brand-700 text-[17px] font-semibold text-white hover:bg-brand-800 disabled:opacity-60">
             {busy ? "অপেক্ষা করুন…" : mode === "login" ? "লগইন" : "যাচাই কোড পাঠান"}
           </button>
         </form>
@@ -164,7 +164,7 @@ export function AuthFlow({ mode, next }: { mode: Mode; next?: string }) {
         <form onSubmit={submitOtp} noValidate className="mt-5 space-y-4">
           <p className="text-[16px]">
             <span className="num font-semibold">{phoneBn(normalized!)}</span> নম্বরে ৬ সংখ্যার কোড পাঠানো হয়েছে।{" "}
-            <button type="button" onClick={() => setStep("form")} className="font-semibold text-field-700 hover:underline">
+            <button type="button" onClick={() => setStep("form")} className="font-semibold text-brand-700 hover:underline">
               নম্বর বদলান
             </button>
           </p>
@@ -188,7 +188,7 @@ export function AuthFlow({ mode, next }: { mode: Mode; next?: string }) {
               </p>
             )}
           </div>
-          <button type="submit" className="h-12 w-full rounded-full bg-field-700 text-[17px] font-semibold text-white hover:bg-field-800">
+          <button type="submit" className="h-12 w-full rounded-full bg-brand-700 text-[17px] font-semibold text-white hover:bg-brand-800">
             যাচাই করুন
           </button>
           <p className="text-center text-[15px] text-muted">
@@ -196,7 +196,7 @@ export function AuthFlow({ mode, next }: { mode: Mode; next?: string }) {
             {resendIn > 0 ? (
               <span className="num">{toBnDigits(resendIn)} সেকেন্ড পর আবার পাঠাতে পারবেন</span>
             ) : (
-              <button type="button" onClick={() => setResendIn(60)} className="font-semibold text-field-700 hover:underline">
+              <button type="button" onClick={() => setResendIn(60)} className="font-semibold text-brand-700 hover:underline">
                 আবার পাঠান
               </button>
             )}
@@ -208,7 +208,7 @@ export function AuthFlow({ mode, next }: { mode: Mode; next?: string }) {
         <form onSubmit={submitNewPass} noValidate className="mt-5 space-y-4">
           <TextField id="n-pw" label="নতুন পাসওয়ার্ড" type="password" value={pw} onChange={setPw} autoComplete="new-password" error={errors.pw} hint="কমপক্ষে ৮ অক্ষর" />
           <TextField id="n-pw2" label="আবার লিখুন" type="password" value={pw2} onChange={setPw2} autoComplete="new-password" error={errors.pw2} />
-          <button type="submit" className="h-12 w-full rounded-full bg-field-700 text-[17px] font-semibold text-white hover:bg-field-800">
+          <button type="submit" className="h-12 w-full rounded-full bg-brand-700 text-[17px] font-semibold text-white hover:bg-brand-800">
             পাসওয়ার্ড সেভ করে লগইন
           </button>
         </form>
@@ -219,14 +219,14 @@ export function AuthFlow({ mode, next }: { mode: Mode; next?: string }) {
           {mode === "login" ? (
             <>
               অ্যাকাউন্ট নেই?{" "}
-              <Link href={`/register${next ? `?next=${encodeURIComponent(next)}` : ""}`} className="font-semibold text-field-700 hover:underline">
+              <Link href={`/register${next ? `?next=${encodeURIComponent(next)}` : ""}`} className="font-semibold text-brand-700 hover:underline">
                 নতুন অ্যাকাউন্ট খুলুন
               </Link>
             </>
           ) : (
             <>
               অ্যাকাউন্ট আছে?{" "}
-              <Link href={`/login${next ? `?next=${encodeURIComponent(next)}` : ""}`} className="font-semibold text-field-700 hover:underline">
+              <Link href={`/login${next ? `?next=${encodeURIComponent(next)}` : ""}`} className="font-semibold text-brand-700 hover:underline">
                 লগইন করুন
               </Link>
             </>

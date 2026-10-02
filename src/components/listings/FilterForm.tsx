@@ -3,7 +3,7 @@ import type { AdFilters } from "@/lib/types";
 import { getCategories, getDistricts, getDivisions } from "@/lib/api";
 import { bn } from "@/lib/format";
 
-const field = "h-11 w-full rounded-lg border border-line bg-surface px-3 text-[15px] outline-none focus:border-field-700 focus:ring-2 focus:ring-field-700/25";
+const field = "h-11 w-full rounded-lg border border-line bg-surface px-3 text-[15px] outline-none focus:border-brand-700 focus:ring-2 focus:ring-brand-700/25";
 const label = "mb-1.5 block text-[14px] font-semibold";
 
 function plainBn(n?: number) {
@@ -103,7 +103,7 @@ export function FilterForm({ f, idPrefix }: { f: AdFilters; idPrefix: string }) 
       </fieldset>
 
       <div className="flex gap-2 pt-1">
-        <button type="submit" className="h-11 flex-1 rounded-full bg-field-700 text-[15px] font-semibold text-white hover:bg-field-800">
+        <button type="submit" className="h-11 flex-1 rounded-full bg-brand-700 text-[15px] font-semibold text-white hover:bg-brand-800">
           ফল দেখুন
         </button>
         <Link href="/ads" className="inline-flex h-11 items-center rounded-full px-4 text-[15px] font-medium text-muted hover:bg-paper hover:text-ink">
@@ -117,7 +117,7 @@ export function FilterForm({ f, idPrefix }: { f: AdFilters; idPrefix: string }) 
 function Radio({ name, value, checked, label, id }: { name: string; value: string; checked: boolean; label: string; id: string }) {
   return (
     <label htmlFor={id} className="flex cursor-pointer items-center gap-2.5 rounded-md py-1 text-[15px]">
-      <input id={id} type="radio" name={name} value={value} defaultChecked={checked} className="size-4 accent-[var(--color-field-700)]" />
+      <input id={id} type="radio" name={name} value={value} defaultChecked={checked} className="size-4 accent-[var(--color-brand-700)]" />
       {label}
     </label>
   );

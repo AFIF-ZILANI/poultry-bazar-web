@@ -2,34 +2,38 @@
 
 /* Tokens: see docs/design.md. Light-only by design: the product is used outdoors on phones. */
 @theme {
-  --color-field-950: #0a2a19;
-  --color-field-900: #0f3d24;
-  --color-field-800: #134f2e;
-  --color-field-700: #17633a;
-  --color-field-600: #1f7a49;
-  --color-field-200: #c5dccb;
-  --color-field-100: #e3efe6;
-  --color-field-50: #f0f6f1;
-  --color-comb-700: #b13a14;
-  --color-comb-600: #d2461b;
+  /* Neel (indigo) as in rickshaw and truck art: headers, links, primary buttons, the rate board. */
+  --color-brand-950: #0e1433;
+  --color-brand-900: #141c47;
+  --color-brand-800: #1b2660;
+  --color-brand-700: #24337e;
+  --color-brand-600: #2f48b0;
+  --color-brand-200: #c8cfec;
+  --color-brand-100: #e3e7f6;
+  --color-brand-50: #f1f3fb;
+  /* Vermilion: the one "sell" action per screen, and asking prices. */
+  --color-comb-700: #b4370f;
+  --color-comb-600: #d9461a;
   --color-comb-100: #f9d9cb;
   --color-comb-50: #fcede6;
-  --color-grain-500: #d9a12e;
-  --color-grain-400: #e8b547;
-  --color-grain-100: #f8ebc9;
-  --color-ink: #18211b;
-  --color-muted: #536058;
-  --color-paper: #f6f5ef;
+  /* Egg yolk: numbers on the rate board, highlights on indigo. */
+  --color-yolk-500: #e0a300;
+  --color-yolk-400: #f2b807;
+  --color-yolk-100: #fcefc5;
+  /* Warm-neutral greys (not cream). */
+  --color-ink: #161a26;
+  --color-muted: #565c6b;
+  --color-paper: #f5f4f0;
   --color-surface: #ffffff;
-  --color-line: #dcdfd6;
-  --color-line-strong: #c3c8bd;
-  --color-ok: #17633a;
+  --color-line: #dfddd5;
+  --color-line-strong: #c7c4ba;
+  --color-ok: #24337e;
   --color-warn: #8a5f00;
   --color-bad: #b42318;
   --color-bad-50: #fdecea;
 
   --radius-card: 14px;
-  --shadow-lift: 0 1px 2px rgb(15 61 36 / 0.06), 0 8px 24px -12px rgb(15 61 36 / 0.25);
+  --shadow-lift: 0 1px 2px rgb(20 28 71 / 0.06), 0 8px 24px -12px rgb(20 28 71 / 0.28);
 }
 
 @theme inline {
@@ -62,7 +66,7 @@ h3 {
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-field-700);
+  outline: 2px solid var(--color-brand-700);
   outline-offset: 2px;
   border-radius: 6px;
 }
@@ -85,7 +89,7 @@ dialog.sheet {
   color: var(--color-ink);
 }
 dialog.sheet::backdrop {
-  background: rgb(10 42 25 / 0.45);
+  background: rgb(14 20 51 / 0.5);
 }
 @media (min-width: 768px) {
   dialog.sheet {

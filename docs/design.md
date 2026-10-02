@@ -3,7 +3,7 @@
 ## Direction
 
 A working market, not a startup landing page. The reference points are a hand-painted আড়ত signboard,
-the chalk rate board at a poultry market, and the green of a ধানক্ষেত. Information is dense and
+the chalk rate board at a poultry market, and the indigo, vermilion and yolk of rickshaw and truck art. Information is dense and
 honest: count, weight, age, price, place. Decoration earns its place only when it carries meaning
 (a health status, a price trend, a verified seller).
 
@@ -13,8 +13,8 @@ photos, centred everything, identical rounded cards with drop shadows on every b
 ## Logo
 
 - **Mark**: a hen in profile built from three geometric pieces: a round body, a comb of three
-  rounded teeth, and a beak. It sits inside a rounded square of field green. The comb is the only
-  orange in the mark, so it reads at 16px as "green tile, orange top".
+  rounded teeth, and a beak. It sits inside a rounded square of indigo (neel). The comb is the only
+  vermilion in the mark and the beak the only yolk, so it reads at 16px as "blue tile, red top".
 - **Wordmark**: "Poultry" in medium weight and "BAZAR" in bold caps, set in Anek Bangla, with the
   Bangla "পোল্ট্রি বাজার" as a secondary line where space allows.
 - **Files**: `public/brand/logo-mark.svg`, `src/components/brand/Logo.tsx` (inline SVG, inherits colour).
@@ -24,22 +24,27 @@ photos, centred everything, identical rounded cards with drop shadows on every b
 
 All colours are CSS variables declared in `src/app/globals.css` and exposed to Tailwind via `@theme`.
 
+The palette is taken from rickshaw and truck art, the most recognisable visual language on Bangladeshi
+roads: deep indigo (neel), vermilion and egg-yolk yellow on off-white. **No green anywhere**, including
+status colours: green is what every agri and fintech template defaults to, and it made v2 look generic.
+
 | Token | Hex | Use |
 |---|---|---|
-| `field-900` | `#0F3D24` | Header, footer, primary text on light surfaces for emphasis |
-| `field-700` | `#17633A` | Primary buttons, links, active states |
-| `field-100` | `#E3EFE6` | Selected chips, soft panels |
-| `comb-600` | `#D2461B` | Single primary call to action per screen ("বিক্রি করুন"), price highlights |
-| `comb-50` | `#FCEDE6` | Price badge background |
-| `grain-400` | `#E8B547` | Rate board accents, "new" markers |
-| `ink` | `#18211B` | Body text |
-| `muted` | `#5B675F` | Secondary text (≥ 4.5:1 on paper) |
-| `paper` | `#F6F5EF` | Page background (warm, slightly green-grey, not cream) |
+| `brand-900` | `#141C47` | Footer, rate board, app hero, dark bands |
+| `brand-700` | `#24337E` | Primary buttons, links, active states, focus ring, "healthy" status |
+| `brand-600` | `#2F48B0` | Chart lines (passes the dataviz lightness/chroma/contrast checks) |
+| `brand-100` | `#E3E7F6` | Selected chips, soft panels, verified badge |
+| `comb-600` | `#D9461A` | Single primary call to action per screen ("বিক্রি করুন"), asking prices |
+| `yolk-400` | `#F2B807` | Prices on the indigo rate board, download button on indigo |
+| `ink` | `#161A26` | Body text |
+| `muted` | `#565C6B` | Secondary text (≥ 4.5:1 on paper) |
+| `paper` | `#F5F4F0` | Page background: warm-neutral grey, deliberately not cream |
 | `surface` | `#FFFFFF` | Cards, inputs |
-| `line` | `#DCDFD6` | Borders, dividers |
-| `ok` / `warn` / `bad` | `#17633A` / `#9A6B00` / `#B42318` | Health and status semantics |
+| `line` | `#DFDDD5` | Borders, dividers |
+| `ok` / `warn` / `bad` | `#24337E` / `#8A5F00` / `#B42318` | Status, always with an icon and text |
 
-Rule: one orange action per view. If two things are orange, one of them is wrong.
+Rules: one vermilion action per view. Yolk only appears on indigo (it fails contrast on white).
+Price rises and falls are shown with arrow + sign; colour only reinforces.
 
 ## Type
 
@@ -92,7 +97,7 @@ shimmer. No marquees, no blinking. All motion off under `prefers-reduced-motion`
 ## Accessibility
 
 - Contrast ≥ 4.5:1 for text, ≥ 3:1 for UI boundaries.
-- Visible focus ring: 2px `field-700` with 2px offset.
+- Visible focus ring: 2px `brand-700` with 2px offset.
 - Touch targets ≥ 44×44px.
 - Every icon-only button has `aria-label` in Bangla.
 - Form labels are bound with `htmlFor`; errors are linked with `aria-describedby`.

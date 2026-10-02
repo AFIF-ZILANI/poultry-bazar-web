@@ -22,7 +22,7 @@ export default function SafetyPage() {
       <ul className="!ml-0 grid gap-4 sm:grid-cols-2 [&>li]:!ml-0 [&>li]:list-none [&>li]:!pl-0">
         {RULES.map(([Icon, t, d]) => (
           <li key={t} className="rounded-2xl border border-line bg-surface p-5">
-            <Icon className="size-6 text-field-700" aria-hidden />
+            <Icon className="size-6 text-brand-700" aria-hidden />
             <h2 className="!mt-3 !text-[19px]">{t}</h2>
             <p className="mt-1 text-[16px] leading-7 text-muted">{d}</p>
           </li>
@@ -30,7 +30,7 @@ export default function SafetyPage() {
       </ul>
       <h2>সন্দেহজনক কিছু দেখলে</h2>
       <p>
-        বিজ্ঞাপনের পাতায় “রিপোর্ট করুন” চাপুন, অথবা <Link href="/contact" className="font-semibold text-field-700 underline">আমাদের জানান</Link>। আমরা ২৪ ঘণ্টার মধ্যে দেখি এবং প্রতারক অ্যাকাউন্ট বন্ধ করি।
+        বিজ্ঞাপনের পাতায় “রিপোর্ট করুন” চাপুন, অথবা <Link href="/contact" className="font-semibold text-brand-700 underline">আমাদের জানান</Link>। আমরা ২৪ ঘণ্টার মধ্যে দেখি এবং প্রতারক অ্যাকাউন্ট বন্ধ করি।
       </p>
       <h2>বিক্রেতাদের জন্য</h2>
       <ul>
