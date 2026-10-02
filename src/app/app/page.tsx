@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
 import QRCode from "qrcode";
 import { BellRing, Camera, LocateFixed, PhoneCall, ShieldCheck, TrendingUp } from "lucide-react";
@@ -8,11 +9,11 @@ import { AppButtons } from "@/components/app/AppButtons";
 import { PhoneMockup } from "@/components/app/PhoneMockup";
 import { JsonLd } from "@/components/JsonLd";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Poultry BAZAR অ্যাপ ডাউনলোড (Android)",
   description: `Poultry BAZAR Android অ্যাপ, সংস্করণ ${APP.version}। ফোন থেকেই মুরগী বিক্রির বিজ্ঞাপন দিন, আজকের দর দেখুন, পাইকারকে সরাসরি কল করুন। বিনামূল্যে।`,
-  alternates: { canonical: "/app" },
-};
+  path: "/app",
+});
 
 const FEATURES = [
   [Camera, "ক্যামেরা থেকে সরাসরি ছবি", "শেডে দাঁড়িয়েই ছবি তুলে বিজ্ঞাপন দিন। গ্যালারিতে খুঁজতে হবে না।"],

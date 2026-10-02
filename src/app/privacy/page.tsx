@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
 import { ProsePage } from "@/components/Prose";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "গোপনীয়তা নীতি",
-  description: "Poultry BAZAR কী তথ্য রাখে, কেন রাখে, আর আপনি কীভাবে মুছতে পারেন।",
-  alternates: { canonical: "/privacy" },
-};
+  description: "Poultry BAZAR আপনার কোন তথ্য রাখে, কেন রাখে, কে দেখতে পায়, আর কীভাবে অ্যাকাউন্ট ও ব্যক্তিগত তথ্য মুছে ফেলতে পারেন। কোনো তথ্য বিক্রি করা হয় না।",
+  path: "/privacy",
+});
 
 export default function PrivacyPage() {
   return (

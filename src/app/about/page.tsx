@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
 import { ProsePage } from "@/components/Prose";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "আমাদের সম্পর্কে",
   description: "Poultry BAZAR বাংলাদেশের খামারি ও পাইকারদের সরাসরি বাজার। কেন বানিয়েছি, কীভাবে চলে, আর আজকের দর কোথা থেকে আসে।",
-  alternates: { canonical: "/about" },
-};
+  path: "/about",
+});
 
 export default function AboutPage() {
   return (

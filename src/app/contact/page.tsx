@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { Mail, MessageCircle, Phone } from "lucide-react";
 import { ProsePage } from "@/components/Prose";
 import { SUPPORT_EMAIL, SUPPORT_PHONE, SUPPORT_WHATSAPP } from "@/lib/site";
 import { phoneBn, toBnDigits } from "@/lib/format";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "যোগাযোগ",
   description: "Poultry BAZAR-এর সাথে ফোন, হোয়াটসঅ্যাপ বা ইমেইলে যোগাযোগ করুন। বিজ্ঞাপন, অ্যাকাউন্ট বা প্রতারণা নিয়ে সাহায্য।",
-  alternates: { canonical: "/contact" },
-};
+  path: "/contact",
+});
 
 export default function ContactPage() {
   const cards = [

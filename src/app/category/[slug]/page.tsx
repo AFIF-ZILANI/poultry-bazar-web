@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getCategories, getCategory, getRate, searchAds } from "@/lib/api";
@@ -18,11 +19,13 @@ export async function generateMetadata(props: PageProps<"/category/[slug]">): Pr
   if (!c) return {};
   const r = getRate(c.slug);
   const total = searchAds({ category: c.slug }).total;
-  return {
+  return pageMeta({
     title: `${c.name} মুরগী বিক্রি: আজকের দর ${perKg(r.today)}`,
     description: `${c.name} মুরগীর ${bn(total)}টি চালু বিজ্ঞাপন। আজকের গড় দর ${perKg(r.today)}। সাধারণ ওজন ${c.typicalWeight}, বয়স ${c.typicalAge}। খামার থেকে সরাসরি কিনুন।`,
-    alternates: { canonical: `/category/${c.slug}` },
-  };
+    path: `/category/${c.slug}`,
+    // A landing page with no live listings is thin content: keep it reachable, keep it out of the index.
+    noindex: total === 0,
+  });
 }
 
 export default async function CategoryPage(props: PageProps<"/category/[slug]">) {

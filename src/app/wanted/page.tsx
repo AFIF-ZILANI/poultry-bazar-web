@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
 import { Plus } from "lucide-react";
 import { getWanted } from "@/lib/api";
@@ -6,11 +7,11 @@ import { bn } from "@/lib/format";
 import { WantedCard } from "@/components/WantedCard";
 import { LocalWanted } from "@/components/wanted/LocalWanted";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "পাইকারের চাহিদা: কে কোন মুরগী কিনতে চান",
   description: "পাইকার, আড়তদার ও রেস্তোরাঁ কোন জেলায় কত মুরগী কিনতে চান। আপনার ব্যাচ মিললে সরাসরি যোগাযোগ করুন।",
-  alternates: { canonical: "/wanted" },
-};
+  path: "/wanted",
+});
 
 export default function WantedPage() {
   const list = getWanted();

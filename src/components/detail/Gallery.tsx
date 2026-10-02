@@ -31,7 +31,7 @@ export function Gallery({ category, seed, photos, alt }: { category: CategorySlu
         >
           {photos.map((v, k) => (
             <div key={k} className="h-full w-full shrink-0 snap-center" role="group" aria-roledescription="slide" aria-label={`ছবি ${toBnDigits(k + 1)} / ${toBnDigits(photos.length)}`}>
-              <FlockArt category={category} seed={seed + k * 13} variant={v} className="h-full w-full" />
+              <FlockArt category={category} seed={seed + k * 13} variant={v} className="h-full w-full" eager={k === 0} />
             </div>
           ))}
         </div>

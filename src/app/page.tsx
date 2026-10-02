@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
 import { ArrowRight, BadgeCheck, HandCoins, PhoneCall, ShieldAlert, Smartphone } from "lucide-react";
 import { getCategories, getDistricts, getWanted, searchAds } from "@/lib/api";
@@ -14,6 +16,14 @@ import { JsonLd } from "@/components/JsonLd";
 import { AppButtons } from "@/components/app/AppButtons";
 import { PhoneMockup } from "@/components/app/PhoneMockup";
 
+export const metadata: Metadata = pageMeta({
+  title: "Poultry BAZAR — মুরগী কেনাবেচার অনলাইন বাজার ও আজকের দর",
+  absoluteTitle: true,
+  description:
+    "খামার থেকে সরাসরি ব্রয়লার, সোনালী, লেয়ার, দেশি মুরগী ও হাঁস কিনুন-বেচুন। জেলাভিত্তিক বিজ্ঞাপন, আজকের বাজার দর ও পাইকারের চাহিদা এক জায়গায়।",
+  path: "/",
+});
+
 export default function HomePage() {
   const latest = searchAds({ sort: "newest" });
   const cats = getCategories();
@@ -29,7 +39,7 @@ export default function HomePage() {
             "@type": "Organization",
             name: "Poultry BAZAR",
             url: SITE_URL,
-            logo: `${SITE_URL}/brand/mark-tile.svg`,
+            logo: `${SITE_URL}/apple-icon`,
           },
           {
             "@context": "https://schema.org",
@@ -37,11 +47,6 @@ export default function HomePage() {
             name: "Poultry BAZAR",
             url: SITE_URL,
             inLanguage: "bn-BD",
-            potentialAction: {
-              "@type": "SearchAction",
-              target: `${SITE_URL}/ads?q={search_term_string}`,
-              "query-input": "required name=search_term_string",
-            },
           },
         ]}
       />
